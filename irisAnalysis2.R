@@ -19,10 +19,8 @@ sepalWidths<-function(data,sepalWidth){
 #column names included at top of each ".csv" file.
 #inputs: data = name of dataset
 writeData<-function(data){
-  for(num in 1:nrow(data)){
-    if(num %% 50 == 1) bool <- TRUE
-    else if(num > 1) bool <- FALSE
-    write.table(data[num,],file=paste(data[num,5],".csv",sep=""),col.names=bool,sep=",",append=TRUE)
+  for(name in levels(data$Species)){
+    write.table(data[data$Species==name,],file=paste(name,".csv",sep=""),sep=",")
   }
   return()
 }
