@@ -10,8 +10,9 @@ specObs<-function(data,specName){
 #function that returns a dataframe for flowers with Sepal.Width
 #greater than a value specified by the function user
 # inputs: data = name of dataset, sepalWidth = sepal.Width
-sepalWidths<-function(data,sepalWidth){
-  return(data[data$Sepal.Width>sepalWidth,])
+sepalWidths<-function(data,taxa,value){
+  subset<-data[data$Sepal.Width>value,]
+  return(subset[subset$Species==taxa,])
 }
 
 #function that write the data for a given species to a comma-delimited
